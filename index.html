@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ben 10 character</title>
+
+    <script>
+        window.onload = function () {
+
+            const characters = ["Ben", "Gwen", "Kevin"];
+            const selectBox = document.getElementById("characterSelect");
+            const img = document.getElementById("characterImage");
+
+        
+            for (let i = 0; i < characters.length; i++) {
+                const option = document.createElement("option");
+                option.value = characters[i];
+                option.text = characters[i].replace("_", " ");
+                selectBox.add(option);
+            }
+
+        
+            function changeImage() {
+                const selected = selectBox.value;
+                img.src = "images/" + selected + ".jpg";
+                img.alt = selected;
+            }
+
+            
+            selectBox.selectedIndex = 0;
+            changeImage();
+
+        
+            selectBox.onchange = changeImage;
+        };
+    </script>
+
+</head>
+
+<body>
+
+    <h2>Select a Ben 10 Character</h2>
+
+    <select id="characterSelect"></select>
+
+    <br><br>
+
+    <img id="characterImage" src="" alt="Character Image" width="300">
+
+</body>
+
+</html>
